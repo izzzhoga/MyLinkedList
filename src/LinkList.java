@@ -1,7 +1,7 @@
 public class LinkList<T> {
     public Node<T> head;
     public Node<T> tail;
-    public int size = 0;
+    private int size = 0;
 
     public LinkList() {
         head = null;
@@ -22,6 +22,21 @@ public class LinkList<T> {
 
     public T getLast() {
         return tail.data;
+    }
+
+    public T get(int index) {
+        int countIndex = 0;
+
+        if ((isEmpty() && index != 0) || index < 0 || index >= getSize())
+            throw new IndexOutOfBoundsException("Element " + index + " not found");
+        else {
+            Node<T> tmpNode = head;
+            while (countIndex != index && tmpNode != tail) {
+                tmpNode = tmpNode.next;
+                countIndex++;
+            }
+            return tmpNode.data;
+        }
     }
 
     public void addFirst(T data) {
@@ -135,15 +150,32 @@ public class LinkList<T> {
         }
     }
 
+    public void clear() {
+        if (isEmpty())
+            throw new IndexOutOfBoundsException("List is clear!");
+        else {
+            Node<T> tmpNode = head;
+            while (tmpNode != tail) {
+                tmpNode = tmpNode.next;
+                tmpNode.previous.next = null;
+                tmpNode.previous = null;
+            }
+            head = tail = null;
+            size = 0;
+            System.out.println();
+        }
+    }
+
     public void printLinkList() {
         if (isEmpty())
             throw new IndexOutOfBoundsException("List is clear!");
         else {
             Node<T> tmpNode = head;
             while (tmpNode != null) {
-                System.out.println(tmpNode.data);
+                System.out.print(tmpNode.data + " ");
                 tmpNode = tmpNode.next;
             }
+            System.out.println();
         }
     }
 }
