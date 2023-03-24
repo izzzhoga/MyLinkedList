@@ -5,10 +5,12 @@ Methods:
 - ```isEmpty()``` - defines an empty list
 - ```getFirst()``` - returns the first object in the list
 - ```getLast()``` - returns the last object in the list
+- ```get()``` - returns an object by index
 - ```addFirst()``` - adds the object first to the list
 - ```addLast()``` - adds the object last to the list
 - ```add()``` - adds an object to the list by index
 - ```removeFirst()``` - deletes the first object in the list
 - ```removeLast()``` - deletes the last object in the list
 - ```remove()``` - deletes an object in the list by index
+- ```clear()``` - remove all objects from the list
 - ```printLinkList()``` - outputs the list to the console
